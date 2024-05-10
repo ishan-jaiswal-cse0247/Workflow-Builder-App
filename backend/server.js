@@ -9,10 +9,10 @@ app.use(require('./routes/router'));
 dotenv.config({ path: './.env' });
 const PORT = process.env.PORT || 5000;
 
-//const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '/frontend/build')));
+const __dirnamee = path.resolve();
+app.use(express.static(path.join(__dirnamee, '/frontend/build')));
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+  res.sendFile(path.join(__dirnamee, '../frontend/build/index.html'))
 );
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
